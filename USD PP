@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Real-time US Dollar Purchasing Power Tracker</h1>
+
+<p id="demo"></p>
+
+<script>
+setInterval(function(){
+  var currentYear = new Date().getFullYear();
+  var startYear = 1970;
+  var inflationRate = 0.03; // average inflation rate in the US
+  var currentDollarValue = 100; // starting dollar value
+  
+  for (var i = startYear; i <= currentYear; i++) {
+    currentDollarValue *= (1 + inflationRate);
+  }
+  
+  document.getElementById("demo").innerHTML = "$100 in " + startYear + " is worth $" + currentDollarValue.toFixed(2) + " in " + currentYear;
+}, 1000);
+</script>
+
+</body>
+</html>
